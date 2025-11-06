@@ -1,0 +1,18 @@
+openapi:
+  # Configurações do OpenAPI
+  downloadUrls:
+    - title: Download OpenAPI Specification
+      url: 'openapi.json'
+  
+  # Nível de expansão dos exemplos JSON
+  jsonSamplesExpandLevel: 2
+  
+  # Desabilitar busca (opcional)
+  disableSearch: true
+  
+  # Tema e cores (opcional)
+  theme:
+    colors:
+      primary:
+        main: '#FF0000'
+

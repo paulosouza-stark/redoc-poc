@@ -9,12 +9,11 @@ docker build -t redoc-docs .
 
 echo ""
 echo "📦 Gerando documentação..."
-mkdir -p output
-docker run -v "$(pwd)/output:/app/output" redoc-docs
+docker run --rm -v "$(pwd):/app/output" redoc-docs
 
 echo ""
-echo "✅ Documentação gerada com sucesso em: output/redoc-static.html"
+echo "✅ Documentação gerada com sucesso em: redoc-static.html"
 echo ""
 echo "Para visualizar, execute:"
-echo "  open output/redoc-static.html"
+echo "  open redoc-static.html"
 
