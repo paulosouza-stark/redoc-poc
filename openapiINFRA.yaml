@@ -203,7 +203,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PixRequests'
+                allOf:
+                  - $ref: '#/components/schemas/PixRequests'
+                  - type: object
+                properties:
+                  cursor:
+                    type: string
+                    nullable: true
+                    example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
               example:
                 cursor: CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ==
                 requests:
@@ -298,7 +305,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PixRequest'
+                type: object
+                properties:
+                  request:
+                    $ref: '#/components/schemas/PixRequest'
               example:
                 request:
                   amount: 10000
@@ -388,8 +398,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: v2ehaycejk8wn
                     properties:
                       request:
                         $ref: '#/components/schemas/PixRequest'
@@ -400,7 +412,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -409,8 +420,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: CkoKFAoHY3JlYXRlZBIJCMaFuPOC1fcCEi5qEGl-YXBpLW1zLXNwaS1kZXZyGgsSDVBpeFJlcXVlc3RMb2cYgICAlPDXyAgMGAAgAQ==
                 logs:
@@ -757,7 +768,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Reversal'
+                type: object
+                properties:
+                  reversal:
+                    $ref: '#/components/schemas/Reversal'
               example:
                 reversal:
                   amount: 10
@@ -819,8 +833,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: no0le34s6n2ug
                     properties:
                       reversal:
                         $ref: '#/components/schemas/Reversal'
@@ -831,7 +847,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -840,8 +855,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: CksKFAoHY3JlYXRlZBIJCISgxMjG1fcCEi9qEGl-YXBpLW1zLXNwaS1kZXZyGwsSDlBpeFJldmVyc2FsTG9nGICAgKSyvLsLDBgAIAE=
                 logs:
@@ -988,7 +1003,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Balance'
+                $ref: '#/components/schemas/Balances'
               example:
                 balances:
                   - amount: 46641
@@ -1073,7 +1088,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Statements'
+                allOf:
+                  - $ref: '#/components/schemas/Statements'
+                  - type: object
+                properties:
+                  cursor:
+                    type: string
+                    nullable: true
+                    example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
               example:
                 cursor: CjMSLWoQaX5hcGktbXMtc3BpLWRldnIZCxIMUGl4U3RhdGVtZW50GICAgKTO7pIIDBgAIAA=
                 statements:
@@ -1122,7 +1144,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Statement'
+                allOf:
+                  - $ref: '#/components/schemas/Statement'
+                  - type: object
+                properties:
+                  cursor:
+                    type: string
+                    nullable: true
+                    example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
               example:
                 statement:
                   after: '2022-01-01T03:00:00+00:00'
@@ -8081,7 +8110,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PixRequest'
-      title: ''
     Reversal:
       type: object
       required:
@@ -8158,26 +8186,41 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Reversal'
-    Balance:
+    Balances:
       type: object
+      x-stoplight:
+        id: da16e6a1217a7
       properties:
-        amount:
-          type: integer
-          example: 100
-          readOnly: true
-        currency:
+        balances:
+          type: array
+          x-stoplight:
+            id: 25qhxditdoxki
+          items:
+            x-stoplight:
+              id: s7yelcsycp7dz
+            type: object
+            properties:
+              amount:
+                type: integer
+                example: 100
+                readOnly: true
+              currency:
+                type: string
+                example: BRL
+                readOnly: true
+              id:
+                type: string
+                example: '5692908409716736'
+                readOnly: true
+              updated:
+                type: string
+                format: datetime
+                example: '2022-05-04 18:02:18.297+00:00'
+                readOnly: true
+        cursor:
           type: string
-          example: BRL
-          readOnly: true
-        id:
-          type: string
-          example: '5692908409716736'
-          readOnly: true
-        updated:
-          type: string
-          format: datetime
-          example: '2022-05-04 18:02:18.297+00:00'
-          readOnly: true
+          example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+          nullable: true
     Statement:
       type: object
       required:
