@@ -7750,31 +7750,35 @@ components:
         name:
           type: string
           example: Edward Stark
+          description: Pix Director's full name.
         taxId:
           type: string
           example: 012.345.678-90
+          description: Pix Director's CPF (11 digits formatted or unformatted).
         phone:
           type: string
           example: '551198989898'
+          description: Pix Director's phone number.
         email:
           type: string
           example: ned.stark@starkbank.com
+          description: Pix Director's email.
         password:
           type: string
           example: '12345678'
+          description: 'Pix Director''s password, which must be informed in case Central Bank representatives get in touch. Must have exactly 8 digits.'
         teamEmail:
           type: string
           example: pix.team@company.com
+          description: Email of the team responsible for the Pix operations.
         teamPhones:
-          items:
-            type: string
           example:
             - '+5511988889999'
             - '+5511988889998'
-        id:
-          type: string
-          example: '5656565656565656'
-          readOnly: true
+          description: 'Phone numbers of the team''s participants responsible for the Pix operations. '
+          type: array
+          items:
+            type: string
         status:
           type: string
           example: success
