@@ -240,7 +240,7 @@ paths:
                   - amount: 1000
                     cashAmount: 0
                     cashierBankCode: ''
-                    cashierType: ''
+                    cashierType: 'other'
                     created: '2022-05-17T21:13:06.035916+00:00'
                     description: Money for nothing
                     endToEndId: E34052649202205172113cHFAlbI6WO9
@@ -721,7 +721,7 @@ paths:
                   - amount: 1
                     created: '2022-03-17T16:27:14.727770+00:00'
                     endToEndId: E34052649202203041806u3kgzzaazla
-                    externalId: "my_external_id"
+                    externalId: my_external_id
                     fee: 0
                     flow: in
                     id: '5280061607378944'
@@ -1580,7 +1580,7 @@ paths:
                   example: '2022-01-01T12:00:00:00'
                 accountNumber:
                   type: string
-                  example: "76543"
+                  example: '76543'
                 accountType:
                   type: string
                   example: salary
@@ -2697,7 +2697,7 @@ paths:
               properties:
                 id:
                   type: string
-                  example: "5719405850615809"
+                  example: '5719405850615809'
                 result:
                   type: string
                   example: agreed
@@ -3305,7 +3305,7 @@ paths:
               properties:
                 id:
                   type: string
-                  example: "5719405850615809"
+                  example: '5719405850615809'
                 result:
                   type: string
                   example: rejected
@@ -3677,14 +3677,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Domains'
-                  - type: object
-                properties:
-                  cursor:
-                    type: string
-                    nullable: true
-                    example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                $ref: '#/components/schemas/Domains'
               example:
                 domains:
                   - certificates:
@@ -3699,6 +3692,14 @@ paths:
                           MIIG/TCCBeWgAwIBAgIQDf12Gq ... SeLP+POvEIiZYh4rRTwbVHM=
                           -----END CERTIFICATE-----
                     name: qrcodes-pix-h.gerencianet.com.br
+              examples:
+                Example 1:
+                  value:
+                    domains:
+                      - certificates:
+                          certificates:
+                            - content: '-----BEGIN CERTIFICATE-----\nMIIGzjCCB...\n-----END CERTIFICATE-----\n'
+                        name: invoice-h.development.starkbank.com
         '400':
           description: Input error
           content:
@@ -3711,8 +3712,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: bc3ola6muzvxy
     parameters:
@@ -8075,7 +8074,7 @@ components:
           description: Receiver's taxId (CPF/CNPJ).
         receiverBankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
           description: Receiver's bank code.
         receiverAccountNumber:
           type: string
@@ -8175,17 +8174,17 @@ components:
           readOnly: true
         senderBankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
           readOnly: true
         created:
           type: string
-          format: date
+          format: datetime
           example: '2022-05-03 17:16:34.787+00:00'
           readOnly: true
         updated:
           type: string
-          format: date
-          example: "2022-05-03 17:16:34.787+00:00"
+          format: datetime
+          example: '2022-05-03 17:16:34.787+00:00'
           readOnly: true
     PixRequests:
       type: object
@@ -8234,7 +8233,7 @@ components:
         bankCode:
           type: string
           readOnly: true
-          example: "20018183"
+          example: '20018183'
         fee:
           type: integer
           example: 200
@@ -8277,11 +8276,11 @@ components:
           readOnly: true
         id:
           type: string
-          example: "5692908409716736"
+          example: '5692908409716736'
           readOnly: true
         updated:
           type: string
-          format: date
+          format: datetime
           example: '2022-05-04 18:02:18.297+00:00'
           readOnly: true
     Statement:
@@ -8381,7 +8380,7 @@ components:
           readOnly: true
         bankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
           readOnly: true
         bankName:
           type: string
@@ -8457,11 +8456,11 @@ components:
           readOnly: true
         bankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
           readOnly: true
         claimedBankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
           readOnly: true
         created:
           type: string
@@ -8499,7 +8498,7 @@ components:
           example: 012.345.678-90
         phone:
           type: string
-          example: "551198989898"
+          example: '551198989898'
         email:
           type: string
           example: ned.stark@starkbank.com
@@ -8531,7 +8530,7 @@ components:
       properties:
         referenceId:
           type: string
-          example: "E20018183202201201450u34sDGd19lz"
+          example: E20018183202201201450u34sDGd19lz
         type:
           type: string
           example: fraud
@@ -8539,15 +8538,15 @@ components:
           type: string
         id:
           type: string
-          example: "5656565656565656"
+          example: '5656565656565656'
           readOnly: true
         creditedBankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
           readOnly: true
         debitedBankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
           readOnly: true
         agent:
           type: string
@@ -8614,11 +8613,11 @@ components:
           readOnly: true
         senderBankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
           readOnly: true
         recieverBankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
           readOnly: true
         rejectionReason:
           type: string
@@ -8698,11 +8697,11 @@ components:
           readOnly: true
         id:
           type: string
-          example: "5729405850615808"
+          example: '5729405850615808'
           readOnly: true
         updated:
           type: string
-          format: date
+          format: datetime
           example: '2022-05-04 18:02:18.297+00:00'
           readOnly: true
     Bin:
@@ -8718,11 +8717,11 @@ components:
           readOnly: true
         id:
           type: string
-          example: "538102"
+          example: '538102'
           readOnly: true
         created:
           type: string
-          format: date
+          format: datetime
           example: '2022-05-04 18:02:18.297+00:00'
           readOnly: true
         network:
@@ -8735,7 +8734,7 @@ components:
           readOnly: true
         updated:
           type: string
-          format: date
+          format: datetime
           example: '2022-05-04 18:02:18.297+00:00'
           readOnly: true
     Card:
@@ -8761,7 +8760,7 @@ components:
           $ref: '#/components/schemas/Rules'
         binId:
           type: string
-          example: "53810200"
+          example: '53810200'
         tags:
           items:
             type: string
@@ -9077,7 +9076,7 @@ components:
           example: 20000
         interval:
           type: string
-          example: "day"
+          example: day
         currencyCode:
           type: string
           example: BRL
@@ -9156,7 +9155,7 @@ components:
           example: 11234
         scheduled:
           type: string
-          format: datetime
+          format: date
         invoices:
           $ref: '#/components/schemas/Invoices'
         payment:
@@ -9213,7 +9212,7 @@ components:
           readOnly: true
         documentId:
           type: string
-          example: "4545454545454545"
+          example: '4545454545454545'
           readOnly: true
         status:
           type: string
@@ -9227,7 +9226,7 @@ components:
           readOnly: true
         workspaceId:
           type: string
-          example: "4545454545454545"
+          example: '4545454545454545'
           readOnly: true
         interest:
           type: number
@@ -9261,7 +9260,6 @@ components:
           format: date
         expiration:
           type: integer
-          format: date
           example: 123456789
         fine:
           type: number
@@ -9397,7 +9395,7 @@ components:
           example: 20.018.183/0001-80
         bankCode:
           type: string
-          example: "20018183"
+          example: '20018183'
         branchCode:
           type: string
           example: 1357-9
@@ -9419,7 +9417,7 @@ components:
           readOnly: true
         externalId:
           type: string
-          example: "my-internal-id-123456"
+          example: my-internal-id-123456
           readOnly: true
         scheduled:
           type: string
@@ -9444,7 +9442,7 @@ components:
         transactionIds:
           items:
             type: string
-            example: "19827356981273"
+            example: '19827356981273'
           readOnly: true
         created:
           type: string
@@ -9528,16 +9526,16 @@ components:
           readOnly: true
         eventId:
           type: string
-          example: "4836873369288704"
+          example: '4836873369288704'
           readOnly: true
         created:
           type: string
-          format: date
+          format: datetime
           example: '2022-05-11T21:48:27.755908+00:00'
           readOnly: true
         id:
           type: string
-          example: "5364974092288000"
+          example: '5364974092288000'
           readOnly: true
         message:
           type: string
@@ -9545,7 +9543,7 @@ components:
           readOnly: true
         webhookId:
           type: string
-          example: "5625289241526272"
+          example: '5625289241526272'
           readOnly: true
     Attempts:
       type: object
