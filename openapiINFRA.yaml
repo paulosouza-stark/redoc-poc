@@ -1698,8 +1698,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: agnr7gtaqipwe
     get:
@@ -1717,12 +1715,7 @@ paths:
         - $ref: '#/components/parameters/Tags'
         - $ref: '#/components/parameters/Ids'
         - $ref: '#/components/parameters/Fields'
-        - name: type
-          in: query
-          description: Filter entities by their type.
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Type'
         - name: keyId
           in: query
           description: Filter entities by their Pix Key id.
@@ -1735,12 +1728,20 @@ paths:
           required: false
           schema:
             type: string
-        - name: agent
-          in: query
-          description: Filter entities by their agent.
-          required: false
-          schema:
+            enum:
+              - cpf
+              - cnpj
+              - phone
+              - email
+              - evp
+        - schema:
             type: string
+            enum:
+              - in
+              - out
+          in: query
+          name: flow
+          description: Filter Pix Claims by their flow.
       responses:
         '200':
           description: OK
@@ -1804,8 +1805,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: q452d8kmkrcbc
     parameters: []
@@ -1817,14 +1816,7 @@ paths:
       summary: Get a Pix claim by ID
       description: Get a specific Pix Claim by it's id.
       parameters:
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
@@ -1844,8 +1836,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: 9n9cs17dldpja
     patch:
@@ -1877,12 +1867,23 @@ paths:
                 id:
                   type: integer
                   example: 5719405850615809
+                  description: Id of the Pix Claim to be patched.
                 status:
                   type: string
                   example: confirmed
+                  description: Patched status for Pix Claim.
+                  enum:
+                    - confirmed
+                    - canceled
                 reason:
                   type: string
                   example: fraud
+                  default: userRequested
+                  description: Reason for the change in Pix Claim.
+                  enum:
+                    - fraud
+                    - userRequested
+                    - accountClosure
       parameters:
         - $ref: '#/components/parameters/ContentType'
       responses:
@@ -1904,8 +1905,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: mjq4xnlrmtlg8
     parameters:
@@ -1918,59 +1917,13 @@ paths:
       summary: List Pix claim logs
       description: Here you can list and filter all Pix Claim Logs. We return it paged.
       parameters:
-        - name: cursor
-          in: query
-          description: String used to get the next batch of results.
-          required: false
-          schema:
-            type: string
-            format: byte
-        - name: limit
-          in: query
-          description: Number of results per cursor. Max = 100.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: after
-          in: query
-          description: Filter entities created after this date.
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: before
-          in: query
-          description: Filter entities created before this date.
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: types
-          in: query
-          description: Filter logs by log types.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: ids
-          in: query
-          description: List of strings to get specific entities by their ids.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/LogTypes'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/Ids'
         - name: claimIds
           in: query
           description: List of strings to get specific logs by their Pix Claim ids.
@@ -1987,8 +1940,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: 0gn9sbhkrekp3
                     properties:
                       claim:
                         $ref: '#/components/schemas/Claim'
@@ -1999,7 +1954,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -2011,11 +1965,10 @@ paths:
                         example: claimed
                       reason:
                         type: string
-                        example: ''
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: CkoKFAoHY3JlYXRlZBIJCLHpgZyj5_cCEi5qEWl-YXBpLW1zLWRpY3QtZGV2chkLEgxEaWN0Q2xhaW1Mb2cYgICAhI28ywsMGAAgAQ==
                 logs:
@@ -2079,8 +2032,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: jxpq9q7hmq1jk
     parameters: []
@@ -2099,14 +2050,7 @@ paths:
           schema:
             type: string
             format: '^\d{16}$'
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
@@ -2127,19 +2071,17 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
                       type:
                         type: string
                         example: created
-                      agent:
-                        type: string
-                        example: claimed
                       reason:
                         type: string
-                        example: ''
+                        example: claimed
+                        x-stoplight:
+                          id: 80cgjtmlog7dw
               example:
                 log:
                   agent: claimer
@@ -2178,8 +2120,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: uv6ckou4l4epm
     parameters:
@@ -7696,24 +7636,43 @@ components:
         accountCreated:
           type: string
           format: datetime
+          description: Opening date or dateTime for the account claiming the Pix Key.
         accountNumber:
           type: string
           example: '76543'
+          description: Number of the account claiming the Pix Key.
         accountType:
           type: string
           example: checking
+          description: Type of the account claiming the Pix Key.
         branchCode:
           type: string
           example: '1234'
+          description: Branch code of the account claiming the Pix Key.
         name:
           type: string
           example: Jamie Lannister
+          description: Account holder's name of the account claiming the Pix Key.
         taxId:
           type: string
           example: 012.345.678-90
+          description: Holder's taxId (CPF/CNPJ) of the account claiming the Pix Key.
         keyId:
           type: string
           example: '+5511989898989'
+          description: 'Id of the registered Pix Key to be claimed. Allowed keyTypes are CPF, CNPJ, phone number or email.'
+        tags:
+          type: array
+          example:
+            - iron
+            - bank
+          x-stoplight:
+            id: 9hipj5197e227
+          description: List of strings to tag the entity for future queries. All tags will be converted to lowercase.
+          items:
+            x-stoplight:
+              id: zdhrmn9p2font
+            type: string
         id:
           type: string
           example: '5656565656565656'
@@ -7730,17 +7689,27 @@ components:
           type: string
           example: CPF
           readOnly: true
-        agent:
-          type: string
-          example: claimer
-          readOnly: true
-        bankCode:
-          type: string
-          example: '20018183'
-          readOnly: true
         claimedBankCode:
           type: string
           example: '20018183'
+          readOnly: true
+        flow:
+          type: string
+          example: in
+          x-stoplight:
+            id: ynyiyoqz3ln6m
+          readOnly: true
+        claimerBankCode:
+          type: string
+          example: '57050894'
+          x-stoplight:
+            id: u6uy62ywo7qql
+          readOnly: true
+        bacenId:
+          type: string
+          example: c0365a80-18aa-4100-9aba-2441727541bc
+          x-stoplight:
+            id: s6m1s2xc0n3e6
           readOnly: true
         created:
           type: string
