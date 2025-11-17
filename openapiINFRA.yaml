@@ -1488,8 +1488,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: c9n4h0z0qrqdb
                     properties:
                       key:
                         $ref: '#/components/schemas/Key'
@@ -1500,7 +1502,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -1509,8 +1510,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: CkgKFAoHY3JlYXRlZBIJCMb5weSh5_cCEixqEWl-YXBpLW1zLWRpY3QtZGV2chcLEgpEaWN0S2V5TG9nGICAgISC_4oIDBgAIAE=
                 logs:
@@ -2524,8 +2525,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: l4hks32uuff1y
                     properties:
                       infraction:
                         $ref: '#/components/schemas/Infraction'
@@ -2536,7 +2539,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -2545,8 +2547,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: ClEKFAoHY3JlYXRlZBIJCOrK9Oak5_cCEjVqEWl-YXBpLW1zLWRpY3QtZGV2ciALEhNJbmZyYWN0aW9uUmVwb3J0TG9nGICAgISNvKsIDBgAIAE=
                 logs:
@@ -3097,8 +3099,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: nv8g6kl118utx
                     properties:
                       chargeback:
                         $ref: '#/components/schemas/Chargeback'
@@ -3109,7 +3113,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -3118,8 +3121,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: ClAKFAoHY3JlYXRlZBIJCJSQ6POn5_cCEjRqEWl-YXBpLW1zLWRpY3QtZGV2ch8LEhJSZXZlcnNhbFJlcXVlc3RMb2cYgICA-OyPsAgMGAAgAQ==
                 logs:
@@ -3878,8 +3881,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: wb948w7f13hgc
                     properties:
                       card:
                         $ref: '#/components/schemas/Card'
@@ -3890,7 +3895,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -3899,8 +3903,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: ClMKFAoHY3JlYXRlZBIJCN7Qmdip5_cCEjdqGGR-YXBpLW1zLWNhcmQtaXNzdWVyLWRldnIbCxIOSXNzdWluZ0NhcmRMb2cYgICA5JjDrQgMGAAgAQ==
                 logs:
@@ -4512,8 +4516,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: rm9w9gyjyl7k7
                     properties:
                       holder:
                         $ref: '#/components/schemas/Holder'
@@ -4524,7 +4530,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -4533,8 +4538,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: ClUKFAoHY3JlYXRlZBIJCKGLrLuq5_cCEjlqGGR-YXBpLW1zLWNhcmQtaXNzdWVyLWRldnIdCxIQSXNzdWluZ0hvbGRlckxvZxiAgICk0rnJCgwYACAB
                 logs:
@@ -4957,8 +4962,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: 9dec4c99qkhd9
                     properties:
                       invoice:
                         $ref: '#/components/schemas/IssuingInvoice'
@@ -4969,7 +4976,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -4978,8 +4984,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: ClYKFAoHY3JlYXRlZBIJCKH_w6CT5_cCEjpqGGR-YXBpLW1zLWNhcmQtaXNzdWVyLWRldnIeCxIRSXNzdWluZ0ludm9pY2VMb2cYgICA5JjDzQkMGAAgAQ==
                 logs:
@@ -5440,8 +5446,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: 2gv7g3qg7nwgy
                     properties:
                       purchase:
                         $ref: '#/components/schemas/Purchase'
@@ -5452,7 +5460,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -5461,8 +5468,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: ClcKFAoHY3JlYXRlZBIJCP2VktTR5_cCEjtqGGR-YXBpLW1zLWNhcmQtaXNzdWVyLWRldnIfCxISSXNzdWluZ1B1cmNoYXNlTG9nGICAgOTT1poKDBgAIAE=
                 logs:
@@ -6294,8 +6301,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  Log:
+                  Logs:
                     type: object
+                    x-stoplight:
+                      id: 63poans3iq3xv
                     properties:
                       note:
                         $ref: '#/components/schemas/Note'
@@ -6306,7 +6315,6 @@ paths:
                         type: array
                         items:
                           type: string
-                        example: []
                       id:
                         type: string
                         example: '5676741565612032'
@@ -6315,8 +6323,8 @@ paths:
                         example: created
                   cursor:
                     type: string
-                    nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                    nullable: true
               example:
                 cursor: null
                 logs:
