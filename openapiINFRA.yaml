@@ -189,12 +189,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Fields'
         - $ref: '#/components/parameters/After'
         - $ref: '#/components/parameters/Before'
         - $ref: '#/components/parameters/Status'
         - $ref: '#/components/parameters/Tags'
         - $ref: '#/components/parameters/Ids'
+        - $ref: '#/components/parameters/Fields'
         - $ref: '#/components/parameters/EndToEndIds'
         - $ref: '#/components/parameters/ExternalIds'
       responses:
@@ -210,7 +210,7 @@ paths:
                   - amount: 10
                     cashAmount: 0
                     cashierBankCode: ''
-                    cashierType: 'other'
+                    cashierType: other
                     created: '2022-05-18T17:23:00.278215+00:00'
                     description: ''
                     endToEndId: E35547753202205181722Jy9eAC3yjXX
@@ -240,7 +240,7 @@ paths:
                   - amount: 1000
                     cashAmount: 0
                     cashierBankCode: ''
-                    cashierType: 'other'
+                    cashierType: other
                     created: '2022-05-17T21:13:06.035916+00:00'
                     description: Money for nothing
                     endToEndId: E34052649202205172113cHFAlbI6WO9
@@ -360,10 +360,10 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Fields'
         - $ref: '#/components/parameters/After'
         - $ref: '#/components/parameters/Before'
         - $ref: '#/components/parameters/LogTypes'
+        - $ref: '#/components/parameters/Fields'
         - name: requestIds
           in: query
           description: List of strings to get specific logs by their Pix Request ids.
@@ -654,8 +654,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: 6o3flxs41ges2
     get:
@@ -667,12 +665,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Fields'
         - $ref: '#/components/parameters/After'
         - $ref: '#/components/parameters/Before'
         - $ref: '#/components/parameters/Status'
         - $ref: '#/components/parameters/Tags'
         - $ref: '#/components/parameters/Ids'
+        - $ref: '#/components/parameters/Fields'
         - name: returnIds
           in: query
           description: List of strings to get specific entities by returnIds.
@@ -756,14 +754,7 @@ paths:
       summary: Get a Pix reversal by ID
       description: Get a single Pix Reversal by its id.
       parameters:
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
@@ -812,51 +803,12 @@ paths:
       summary: List Pix reversal logs
       description: Get a paged list of all Pix Reversal Logs. A log tracks a change in the Pix Request Logs entity according to its life cycle.
       parameters:
-        - name: cursor
-          in: query
-          description: String used to get the next batch of results.
-          required: false
-          schema:
-            type: string
-            format: byte
-        - name: limit
-          in: query
-          description: Number of results per cursor. Max = 100.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: after
-          in: query
-          description: Filter entities created after this date.
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: before
-          in: query
-          description: Filter entities created before this date.
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: types
-          in: query
-          description: Filter logs by log types.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/LogTypes'
+        - $ref: '#/components/parameters/Fields'
         - name: reversalIds
           in: query
           description: List of strings to get specific logs by their Pix Reversal ids.
@@ -966,14 +918,7 @@ paths:
           schema:
             type: string
             format: '^\d{16}$'
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
@@ -1138,12 +1083,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Fields'
         - $ref: '#/components/parameters/After'
         - $ref: '#/components/parameters/Before'
         - $ref: '#/components/parameters/Status'
         - $ref: '#/components/parameters/Tags'
         - $ref: '#/components/parameters/Ids'
+        - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
@@ -1336,12 +1281,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Fields'
         - $ref: '#/components/parameters/After'
         - $ref: '#/components/parameters/Before'
         - $ref: '#/components/parameters/Status'
         - $ref: '#/components/parameters/Tags'
         - $ref: '#/components/parameters/Ids'
+        - $ref: '#/components/parameters/Fields'
         - name: type
           in: query
           description: Filter entities of a specific type.
@@ -1936,12 +1881,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Fields'
         - $ref: '#/components/parameters/After'
         - $ref: '#/components/parameters/Before'
         - $ref: '#/components/parameters/Status'
         - $ref: '#/components/parameters/Tags'
         - $ref: '#/components/parameters/Ids'
+        - $ref: '#/components/parameters/Fields'
         - name: type
           in: query
           description: Filter entities by their type.
@@ -2537,12 +2482,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Fields'
         - $ref: '#/components/parameters/After'
         - $ref: '#/components/parameters/Before'
         - $ref: '#/components/parameters/Status'
         - $ref: '#/components/parameters/Tags'
         - $ref: '#/components/parameters/Ids'
+        - $ref: '#/components/parameters/Fields'
         - name: type
           in: query
           description: Filter entities by their type.
@@ -8200,28 +8145,41 @@ components:
       type: object
       required:
         - amount
-        - externalId
         - endToEndId
+        - externalId
         - reason
       properties:
         amount:
           type: integer
           example: 1000
+          description: A positive integer that represents the amount in cents to be reversed from the Pix.
         endToEndId:
           type: string
           example: E79457883202101262140HHX553UPqeq
+          description: Central Bank's unique transaction id of the Pix to be reversed.
         externalId:
           type: string
           example: my_unique_id
+          description: Url safe string that must be unique among all your Pix Reversals.
         reason:
           type: string
           example: fraud
+          description: Reason why the Pix is being reversed.
+          enum:
+            - bankError
+            - fraud
+            - cashierError
+            - customerRequest
         tags:
-          items:
-            type: string
           example:
             - employees
             - monthly
+          type: array
+          description: List of strings to tag the entity for future queries. All tags will be converted to lowercase.
+          items:
+            x-stoplight:
+              id: wt9gd14h8ab7e
+            type: string
         id:
           type: string
           example: '5656565656565656'
@@ -8230,10 +8188,6 @@ components:
           type: string
           example: D20018183202202030109X3OoBHG74wo
           readOnly: true
-        bankCode:
-          type: string
-          readOnly: true
-          example: '20018183'
         fee:
           type: integer
           example: 200
