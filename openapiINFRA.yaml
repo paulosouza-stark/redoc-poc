@@ -1474,59 +1474,13 @@ paths:
       summary: List Pix key logs
       description: Get a paged list of all Pix Key Logs. A log tracks a change in the Pix Key Logs entity according to its life cycle.
       parameters:
-        - name: cursor
-          in: query
-          description: String used to get the next batch of results.
-          required: false
-          schema:
-            type: string
-            format: byte
-        - name: limit
-          in: query
-          description: Number of results per cursor. Max = 100.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: after
-          in: query
-          description: Filter entities created after this date.
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: before
-          in: query
-          description: Filter entities created before this date.
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: types
-          in: query
-          description: Filter logs by log types.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: ids
-          in: query
-          description: List of strings to get specific entities by their ids.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/LogTypes'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/Ids'
         - name: keyIds
           in: query
           description: List of strings to get specific logs by their Pix Key ids.
@@ -1621,8 +1575,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: id0uiafbplwm2
     parameters:
@@ -1642,14 +1594,7 @@ paths:
           schema:
             type: string
             format: '^\d{16}$'
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
@@ -1711,8 +1656,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: lnl9pijhca0bn
     parameters:
@@ -8972,26 +8915,31 @@ components:
       properties:
         after:
           type: string
+          readOnly: true
           x-stoplight:
             id: a76kb3rjqjtld
           example: '2025-04-28T22:52:03.606762+00:00'
         source:
           type: string
+          readOnly: true
           x-stoplight:
             id: kiaz90y81jyso
           example: pix-key
         type:
           type: string
+          readOnly: true
           x-stoplight:
             id: 7dffmc2wvblyp
           example: registered
         updated:
           type: string
+          readOnly: true
           x-stoplight:
             id: frwguc0u1e6qf
           example: '2025-04-28T07:27:11+00:00'
         value:
           type: string
+          readOnly: true
           x-stoplight:
             id: dksgqupdear0o
           example: '0'
@@ -9003,26 +8951,31 @@ components:
       properties:
         after:
           type: string
+          readOnly: true
           x-stoplight:
             id: a76kb3rjqjtla
           example: '2020-04-29T07:27:11+00:00'
         source:
           type: string
+          readOnly: true
           x-stoplight:
             id: kiaz90y81jysa
           example: pix-key
         type:
           type: string
+          readOnly: true
           x-stoplight:
             id: 7dffmc2wvblya
           example: unique
         updated:
           type: string
+          readOnly: true
           x-stoplight:
             id: frwguc0u1e6qa
           example: '2025-04-28T07:27:11+00:00'
         value:
           type: string
+          readOnly: true
           x-stoplight:
             id: dksgqupdear0a
           example: '3101'
