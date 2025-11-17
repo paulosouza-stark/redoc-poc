@@ -288,8 +288,7 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: 25x0tmjsu1827
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-request/{id}':
     get:
       operationId: getPixRequest
@@ -358,7 +357,6 @@ paths:
       x-stoplight:
         id: 8hsr1rsga3pdh
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-request/log:
     get:
@@ -515,8 +513,7 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: x9v81y3dvs472
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-request/log/{logId}':
     get:
       operationId: getPixRequestLog
@@ -621,7 +618,6 @@ paths:
       x-stoplight:
         id: pv0jhvfvq38mu
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-reversal:
     post:
@@ -751,8 +747,7 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: h4afynynxlobo
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-reversal/{id}':
     get:
       operationId: getPixReversal
@@ -801,7 +796,6 @@ paths:
       x-stoplight:
         id: 3o7pakt5fjspp
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-reversal/log:
     get:
@@ -908,8 +902,7 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: alw90afpjiaqs
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-reversal/log/{logId}':
     get:
       operationId: getPixReversalLog
@@ -987,7 +980,6 @@ paths:
       x-stoplight:
         id: 3uvabjhiam60i
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-balance:
     get:
@@ -1025,8 +1017,7 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: p9mkfv5ub4lyj
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   /pix-statement:
     post:
       operationId: createPixStatement
@@ -1112,8 +1103,7 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: 8m8wn8iew2h6v
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-statement/{id}':
     get:
       operationId: getPixStatement
@@ -1145,7 +1135,6 @@ paths:
       x-stoplight:
         id: wdmf3c607phq4
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   '/pix-statement/{id}/csv':
     get:
@@ -1178,7 +1167,6 @@ paths:
       x-stoplight:
         id: tpyeixk1phhr3
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-key:
     post:
@@ -1303,8 +1291,7 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: q6r7sddtwno32
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-key/{id}':
     get:
       operationId: getPixKey
@@ -1464,7 +1451,6 @@ paths:
       x-stoplight:
         id: ouur40bfm2716
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-key/log:
     get:
@@ -1577,8 +1563,7 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: id0uiafbplwm2
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-key/log/{logId}':
     get:
       operationId: getPixKeyLog
@@ -1659,7 +1644,6 @@ paths:
       x-stoplight:
         id: lnl9pijhca0bn
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-claim:
     post:
@@ -1818,8 +1802,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: q452d8kmkrcbc
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-claim/{id}':
     get:
       operationId: getPixClaim
@@ -1919,7 +1902,6 @@ paths:
       x-stoplight:
         id: mjq4xnlrmtlg8
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-claim/log:
     get:
@@ -2094,8 +2076,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: jxpq9q7hmq1jk
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-claim/log/{logId}':
     get:
       operationId: getPixClaimLog
@@ -2195,7 +2176,6 @@ paths:
       x-stoplight:
         id: uv6ckou4l4epm
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-director:
     post:
@@ -2244,8 +2224,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: d1ok4648j6fj6
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   /pix-infraction:
     post:
       operationId: createPixInfractions
@@ -2377,8 +2356,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: dxml2urj9h67t
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-infraction/{id}':
     get:
       operationId: getPixInfraction
@@ -2518,7 +2496,6 @@ paths:
       x-stoplight:
         id: f2yd72xkih3dk
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-infraction/log:
     get:
@@ -2681,8 +2658,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: 65j42wephxsoz
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-infraction/log/{logId}':
     get:
       operationId: getPixInfractionLog
@@ -2773,7 +2749,6 @@ paths:
       x-stoplight:
         id: qtsrfce9nk6os
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-chargeback:
     post:
@@ -2942,8 +2917,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: 6bix3z99aws59
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-chargeback/{id}':
     get:
       operationId: getPixChargeback
@@ -3093,7 +3067,6 @@ paths:
       x-stoplight:
         id: t0e8x9wadaskq
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-chargeback/log:
     get:
@@ -3254,8 +3227,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: ab87egvzrw6iq
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/pix-chargeback/log/{logId}':
     get:
       operationId: getPixChargebackLogs
@@ -3345,7 +3317,6 @@ paths:
       x-stoplight:
         id: 70x0l62xon1o3
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-domain:
     get:
@@ -3376,8 +3347,7 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: bc3ola6muzvxy
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   /issuing-balance:
     get:
       operationId: listIssuingBalances
@@ -3423,8 +3393,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: sh8n036ekck50
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   /issuing-bin:
     get:
       operationId: listIssuingBins
@@ -3483,8 +3452,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: bg3bzsm8s7ap7
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   /issuing-card:
     post:
       operationId: createIssuingCards
@@ -3717,8 +3685,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: 007b1tvyghu1b
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-card/{id}':
     get:
       operationId: getIssuingCard
@@ -3879,7 +3846,6 @@ paths:
       x-stoplight:
         id: an21b3bjp7mnc
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-card/log:
     get:
@@ -4064,8 +4030,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: 6refzdznje7hg
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-card/log/{logId}':
     get:
       operationId: getIssuingCardLog
@@ -4167,7 +4132,6 @@ paths:
       x-stoplight:
         id: vwyrp7k2yegf0
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /issuing-holder:
     post:
@@ -4362,8 +4326,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: 2cr7ayfmguc0p
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-holder/{id}':
     get:
       operationId: getIssuingHolder
@@ -4516,7 +4479,6 @@ paths:
       x-stoplight:
         id: 6j1z9ya3plucg
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-holder/log:
     get:
@@ -4675,8 +4637,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: grqp25n9lyf9g
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-holder/log/{logId}':
     get:
       operationId: getIssuingHolderLog
@@ -4765,7 +4726,6 @@ paths:
       x-stoplight:
         id: so9fatkxkj9ab
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /issuing-invoice:
     post:
@@ -4930,8 +4890,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: rx1p4a7lgzoyz
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-invoice/{id}':
     get:
       operationId: getIssuingInvoice
@@ -4972,7 +4931,6 @@ paths:
       x-stoplight:
         id: zrbmcfz7774m4
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-invoice/log:
     get:
@@ -5119,8 +5077,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: yecymi450ps52
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-invoice/log/{logId}':
     get:
       operationId: getIssuingInvoiceLog
@@ -5202,7 +5159,6 @@ paths:
       x-stoplight:
         id: 9rqiemw4yto1y
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /issuing-purchase:
     get:
@@ -5384,8 +5340,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: j27xa6maf6i58
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-purchase/{id}':
     get:
       operationId: getIssuingPurchase
@@ -5459,7 +5414,6 @@ paths:
       x-stoplight:
         id: 63bpyl7hfh6z0
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-purchase/log:
     get:
@@ -5646,8 +5600,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: uxakts09poyh3
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-purchase/log/{logId}':
     get:
       operationId: getIssuingPurchaseLog
@@ -5754,7 +5707,6 @@ paths:
       x-stoplight:
         id: df14l2z6yrrpu
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /issuing-transaction:
     get:
@@ -5872,8 +5824,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: ee0k9rhmlk4cg
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-transaction/{id}':
     get:
       operationId: getIssuingTransaction
@@ -5923,7 +5874,6 @@ paths:
       x-stoplight:
         id: 69f88umyr44jb
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-withdrawal:
     post:
@@ -6082,8 +6032,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: nstlamhuk9sww
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/issuing-withdrawal/{id}':
     get:
       operationId: getIssuingWithdrawal
@@ -6124,7 +6073,6 @@ paths:
       x-stoplight:
         id: v6omwjyf47qpz
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /credit-note:
     post:
@@ -6277,8 +6225,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: eklmw91wqpuur
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/credit-note/{id}':
     get:
       operationId: getCreditNote
@@ -6319,7 +6266,6 @@ paths:
       x-stoplight:
         id: dc36wvzbygyw6
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /credit-note/log:
     get:
@@ -6538,8 +6484,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: nv5hftqbqj97l
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/credit-note/log/{logId}':
     get:
       operationId: getCreditNoteLog
@@ -6662,7 +6607,6 @@ paths:
       x-stoplight:
         id: jnkzo0pfqskki
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /event:
     get:
@@ -6747,8 +6691,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: lx48h472b58o2
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/event/{id}':
     get:
       operationId: getEvent
@@ -6997,7 +6940,6 @@ paths:
       x-stoplight:
         id: vhrfsa3dn0ipq
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /event/attempt:
     get:
@@ -7084,8 +7026,7 @@ paths:
                 cursor: null
       x-stoplight:
         id: zpdwkuxa57wsd
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   /webhook:
     post:
       operationId: createWebhook
@@ -7182,8 +7123,7 @@ paths:
           description: Unexpected error
       x-stoplight:
         id: tsw0bz4s7a3qq
-    parameters:
-      - $ref: '#/components/parameters/ContentType'
+    parameters: []
   '/webhook/{id}':
     get:
       operationId: getWebhook
@@ -7265,7 +7205,6 @@ paths:
       x-stoplight:
         id: gvcrscu6qoyv7
     parameters:
-      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
 components:
   schemas:
