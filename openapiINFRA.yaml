@@ -607,8 +607,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: pv0jhvfvq38mu
     parameters:
@@ -740,8 +738,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: h4afynynxlobo
     parameters:
@@ -788,8 +784,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: 3o7pakt5fjspp
     parameters:
@@ -897,8 +891,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: alw90afpjiaqs
     parameters:
@@ -977,8 +969,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: 3uvabjhiam60i
     parameters:
@@ -998,14 +988,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Balance'
-                  - type: object
-                properties:
-                  cursor:
-                    type: string
-                    nullable: true
-                    example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                $ref: '#/components/schemas/Balance'
               example:
                 balances:
                   - amount: 46641
@@ -1025,8 +1008,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: p9mkfv5ub4lyj
     parameters:
