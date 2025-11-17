@@ -1226,8 +1226,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: fp8dcj6ua0ez8
     get:
@@ -1245,12 +1243,7 @@ paths:
         - $ref: '#/components/parameters/Tags'
         - $ref: '#/components/parameters/Ids'
         - $ref: '#/components/parameters/Fields'
-        - name: type
-          in: query
-          description: Filter entities of a specific type.
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Type'
       responses:
         '200':
           description: OK
@@ -1310,8 +1303,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: q6r7sddtwno32
     parameters:
@@ -1336,14 +1327,15 @@ paths:
           required: false
           schema:
             type: string
-        - name: fields
+        - $ref: '#/components/parameters/Fields'
+        - schema:
+            type: string
+            enum:
+              - statistics
+              - ownerStatistics
           in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+          name: expand
+          description: List of strings to expand the Pix Key information.
       responses:
         '200':
           description: OK
@@ -1380,8 +1372,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: xklvz98p6ibew
     delete:
@@ -1390,28 +1380,14 @@ paths:
         - Pix Key
       summary: Cancel a Pix key by ID
       description: Cancel a single Pix Key.
-      parameters:
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+      parameters: []
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Key'
-                  - type: object
-                properties:
-                  status:
-                    type: string
-                    example: canceled
+                $ref: '#/components/schemas/Key'
               example:
                 key:
                   accountCreated: '2022-02-02T02:59:59.999999+00:00'
@@ -1442,8 +1418,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: 342cpt01n5vdc
     patch:
@@ -1475,24 +1449,35 @@ paths:
                 id:
                   type: string
                   example: '+5511989898989'
+                  description: Id of the Pix Key to be patched. Can not be an EVP.
                 reason:
                   type: string
                   example: reconciliation
+                  description: Reason for the patch.
+                  enum:
+                    - branchTransfer
+                    - reconciliation
+                    - userRequested
                 accountCreated:
                   type: string
                   example: '2022-01-01T12:00:00:00'
+                  description: Opening date or dateTime for the account to be linked to the Pix Key.
                 accountNumber:
                   type: string
                   example: '76543'
+                  description: Account number of the account to be linked to the Pix Key.
                 accountType:
                   type: string
                   example: salary
+                  description: Account type of the account to be linked to the Pix Key.
                 branchCode:
                   type: string
                   example: '1234'
+                  description: Branch code of the account to be linked to the Pix Key.
                 name:
                   type: string
                   example: Jamie Lannister
+                  description: Holder's name of the account to be linked to the Pix Key.
             example:
               reason: reconciliation
               accountCreated: '2022-01-01T12:00:00:00'
@@ -1520,8 +1505,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: ouur40bfm2716
     parameters:
@@ -8228,6 +8211,8 @@ components:
           readOnly: true
         chunkCount:
           type: integer
+          example: 11
+          readOnly: true
           x-stoplight:
             id: 0bbiqeii0aswt
         created:
@@ -8262,30 +8247,46 @@ components:
           type: string
           format: datetime
           example: '2022-02-01T00:00:00.00'
+          description: Opening date or dateTime for the account linked to the Pix Key.
         accountNumber:
           type: string
           example: '76543'
+          description: Number of the account linked to the Pix Key.
         accountType:
           type: string
           example: checking
+          description: Type of the account linked to the Pix Key
+          enum:
+            - checking
+            - savings
+            - salary
+            - payment
         branchCode:
           type: string
           example: '1234'
+          description: Branch code of the account linked to the Pix Key.
         name:
           type: string
           example: Jamie Lannister
+          description: Account holder's name of the account linked to the Pix Key.
         taxId:
           type: string
           example: 012.345.678-90
+          description: Account holder's taxId (CPF/CNPJ) of the account linked to the Pix Key.
         id:
           type: string
           example: '+5511989898989'
+          description: 'Id of the registered Pix Key. Allowed types are: CPF, CNPJ, phone number or email. If this parameter is not passed, an EVP will be created.'
         tags:
-          items:
-            type: string
           example:
             - employees
             - monthly
+          type: array
+          description: List of strings to tag the entity for future queries. All tags will be converted to lowercase.
+          items:
+            x-stoplight:
+              id: 85oo82758mmdf
+            type: string
         owned:
           type: string
           format: datetime
@@ -8314,6 +8315,20 @@ components:
           type: string
           format: datetime
           example: '2022-05-04 18:02:18.297+00:00'
+          readOnly: true
+        statistics:
+          type: array
+          x-stoplight:
+            id: pgd48vwvd3qs4
+          items:
+            $ref: '#/components/schemas/Statistics'
+          readOnly: true
+        ownerStatistics:
+          x-stoplight:
+            id: wpbhlf768f6qb
+          type: array
+          items:
+            $ref: '#/components/schemas/OwnerStatistics'
           readOnly: true
     Keys:
       type: object
@@ -9506,6 +9521,68 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RequestError'
+    OwnerStatistics:
+      title: OwnerStatistics
+      x-stoplight:
+        id: 2ajctse0btkdj
+      type: object
+      properties:
+        after:
+          type: string
+          x-stoplight:
+            id: a76kb3rjqjtld
+          example: '2025-04-28T22:52:03.606762+00:00'
+        source:
+          type: string
+          x-stoplight:
+            id: kiaz90y81jyso
+          example: pix-key
+        type:
+          type: string
+          x-stoplight:
+            id: 7dffmc2wvblyp
+          example: registered
+        updated:
+          type: string
+          x-stoplight:
+            id: frwguc0u1e6qf
+          example: '2025-04-28T07:27:11+00:00'
+        value:
+          type: string
+          x-stoplight:
+            id: dksgqupdear0o
+          example: '0'
+    Statistics:
+      title: Statistics
+      x-stoplight:
+        id: 2ajctse0btkda
+      type: object
+      properties:
+        after:
+          type: string
+          x-stoplight:
+            id: a76kb3rjqjtla
+          example: '2020-04-29T07:27:11+00:00'
+        source:
+          type: string
+          x-stoplight:
+            id: kiaz90y81jysa
+          example: pix-key
+        type:
+          type: string
+          x-stoplight:
+            id: 7dffmc2wvblya
+          example: unique
+        updated:
+          type: string
+          x-stoplight:
+            id: frwguc0u1e6qa
+          example: '2025-04-28T07:27:11+00:00'
+        value:
+          type: string
+          x-stoplight:
+            id: dksgqupdear0a
+          example: '3101'
   parameters:
     content-type:
       name: Content-Type
@@ -9636,4 +9713,11 @@ components:
         type: array
         items:
           type: string
+    Type:
+      name: type
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Filter entities of a specific type.
   securitySchemes: {}
