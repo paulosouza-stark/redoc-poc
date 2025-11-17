@@ -661,6 +661,8 @@ paths:
                 $ref: '#/components/schemas/InternalErrors'
       x-stoplight:
         id: 6o3flxs41ges2
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
     get:
       operationId: listPixReversals
       tags:
@@ -1037,7 +1039,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Statement'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -1192,7 +1195,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Key'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -1428,7 +1432,8 @@ paths:
                   type: string
                   example: Jamie Lannister
                   description: Holder's name of the account to be linked to the Pix Key.
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -1672,7 +1677,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Claim'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -1877,7 +1883,8 @@ paths:
                 reason:
                   type: string
                   example: fraud
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -2200,7 +2207,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Director'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: Successful response
@@ -2246,7 +2254,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Infractions'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -2427,7 +2436,8 @@ paths:
                 analysis:
                   type: string
                   example: Client payed for an item and never received it.
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -2770,7 +2780,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Chargebacks'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -2998,7 +3009,8 @@ paths:
                 analysis:
                   type: string
                   example: Upon investigation fraud was confirmed.
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -3477,7 +3489,8 @@ paths:
         | city | OPTIONAL | Cardholder's address city. Example: district="Sao Paulo". |
         | stateCode | OPTIONAL | Cardholder's address state code. Example: stateCode="SP". |
         | zipCode | OPTIONAL | Cardholder's address zip code. Example: zipCode="01311-200". |
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -3769,7 +3782,8 @@ paths:
                 tags:
                   items:
                     type: string
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -4410,7 +4424,8 @@ paths:
                 tags:
                   items:
                     type: string
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -4747,7 +4762,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/IssuingInvoice'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -5895,7 +5911,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Withdrawal'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -6103,7 +6120,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Notes'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -6915,7 +6933,8 @@ paths:
                 isDelivered:
                   type: boolean
                   example: true
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
@@ -7039,7 +7058,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Webhook'
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       responses:
         '200':
           description: OK
