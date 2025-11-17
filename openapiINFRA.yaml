@@ -179,7 +179,7 @@ paths:
       x-stoplight:
         id: xmlmrgj4ypigw
       parameters:
-        - $ref: '#/components/parameters/content-type'
+        - $ref: '#/components/parameters/ContentType'
     get:
       operationId: listPixRequests
       tags:
@@ -289,7 +289,7 @@ paths:
       x-stoplight:
         id: 25x0tmjsu1827
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-request/{id}':
     get:
       operationId: getPixRequest
@@ -358,7 +358,7 @@ paths:
       x-stoplight:
         id: 8hsr1rsga3pdh
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-request/log:
     get:
@@ -516,7 +516,7 @@ paths:
       x-stoplight:
         id: x9v81y3dvs472
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-request/log/{logId}':
     get:
       operationId: getPixRequestLog
@@ -621,7 +621,7 @@ paths:
       x-stoplight:
         id: pv0jhvfvq38mu
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-reversal:
     post:
@@ -752,7 +752,7 @@ paths:
       x-stoplight:
         id: h4afynynxlobo
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-reversal/{id}':
     get:
       operationId: getPixReversal
@@ -801,7 +801,7 @@ paths:
       x-stoplight:
         id: 3o7pakt5fjspp
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-reversal/log:
     get:
@@ -909,7 +909,7 @@ paths:
       x-stoplight:
         id: alw90afpjiaqs
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-reversal/log/{logId}':
     get:
       operationId: getPixReversalLog
@@ -987,7 +987,7 @@ paths:
       x-stoplight:
         id: 3uvabjhiam60i
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-balance:
     get:
@@ -1026,7 +1026,7 @@ paths:
       x-stoplight:
         id: p9mkfv5ub4lyj
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   /pix-statement:
     post:
       operationId: createPixStatement
@@ -1098,21 +1098,6 @@ paths:
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
               example:
                 cursor: CjMSLWoQaX5hcGktbXMtc3BpLWRldnIZCxIMUGl4U3RhdGVtZW50GICAgKTO7pIIDBgAIAA=
-                statements:
-                  - after: '2022-01-01T03:00:00+00:00'
-                    before: '2022-01-02T02:59:59.999999+00:00'
-                    created: '2022-03-22T18:20:51.308948+00:00'
-                    id: '4544014539816960'
-                    status: success
-                    transactionCount: 0
-                    updated: '2022-03-22T18:20:56.320174+00:00'
-                  - after: '2022-01-10T03:00:00+00:00'
-                    before: '2022-01-11T02:59:59.999999+00:00'
-                    created: '2022-02-17T19:42:28.092174+00:00'
-                    id: '4586565049253888'
-                    status: failed
-                    transactionCount: 0
-                    updated: '2022-02-17T19:42:30.818301+00:00'
         '400':
           description: Input error
           content:
@@ -1128,7 +1113,7 @@ paths:
       x-stoplight:
         id: 8m8wn8iew2h6v
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-statement/{id}':
     get:
       operationId: getPixStatement
@@ -1144,23 +1129,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Statement'
-                  - type: object
-                properties:
-                  cursor:
-                    type: string
-                    nullable: true
-                    example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
-              example:
-                statement:
-                  after: '2022-01-01T03:00:00+00:00'
-                  before: '2022-01-02T02:59:59.999999+00:00'
-                  created: '2022-03-22T18:20:51.308948+00:00'
-                  id: '4544014539816960'
-                  status: success
-                  transactionCount: 0
-                  updated: '2022-03-22T18:20:56.320174+00:00'
+                $ref: '#/components/schemas/Statement'
         '400':
           description: Input error
           content:
@@ -1176,7 +1145,7 @@ paths:
       x-stoplight:
         id: wdmf3c607phq4
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   '/pix-statement/{id}/csv':
     get:
@@ -1209,7 +1178,7 @@ paths:
       x-stoplight:
         id: tpyeixk1phhr3
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-key:
     post:
@@ -1335,7 +1304,7 @@ paths:
       x-stoplight:
         id: q6r7sddtwno32
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-key/{id}':
     get:
       operationId: getPixKey
@@ -1372,23 +1341,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Key'
-              example:
-                key:
-                  accountCreated: '2022-02-02T02:59:59.999999+00:00'
-                  accountNumber: '0000'
-                  accountType: savings
-                  bankCode: '35547753'
-                  bankName: ''
-                  branchCode: '0000'
-                  created: '2022-05-17T19:19:46.274234+00:00'
-                  id: exemplopostman@hotmail.com
-                  name: Jamie Lannister
-                  owned: '2022-05-17T19:19:46.274234+00:00'
-                  ownerType: individual
-                  status: registered
-                  tags: []
-                  taxId: 012.345.678-90
-                  type: email
         '400':
           description: Input error
           content:
@@ -1417,24 +1369,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Key'
-              example:
-                key:
-                  accountCreated: '2022-02-02T02:59:59.999999+00:00'
-                  accountNumber: '0000'
-                  accountType: savings
-                  bankCode: '35547753'
-                  bankName: ''
-                  branchCode: '0000'
-                  created: '2022-05-17T19:19:46.274234+00:00'
-                  id: exemplopostman@hotmail.com
-                  name: Jamie Lannister
-                  owned: '2022-05-17T19:19:46.274234+00:00'
-                  ownerType: individual
-                  status: registered
-                  tags: []
-                  taxId: 012.345.678-90
-                  type: email
-                message: Key deletion successfully requested.
         '400':
           description: Input error
           content:
@@ -1507,13 +1441,6 @@ paths:
                   type: string
                   example: Jamie Lannister
                   description: Holder's name of the account to be linked to the Pix Key.
-            example:
-              reason: reconciliation
-              accountCreated: '2022-01-01T12:00:00:00'
-              accountNumber: 76543
-              accountType: salary
-              branchCode: '1234'
-              name: Jamie Lannister
       parameters: []
       responses:
         '200':
@@ -1537,7 +1464,7 @@ paths:
       x-stoplight:
         id: ouur40bfm2716
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-key/log:
     get:
@@ -1699,7 +1626,7 @@ paths:
       x-stoplight:
         id: id0uiafbplwm2
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-key/log/{logId}':
     get:
       operationId: getPixKeyLog
@@ -1789,7 +1716,7 @@ paths:
       x-stoplight:
         id: lnl9pijhca0bn
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-claim:
     post:
@@ -1949,7 +1876,7 @@ paths:
       x-stoplight:
         id: q452d8kmkrcbc
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-claim/{id}':
     get:
       operationId: getPixClaim
@@ -1973,25 +1900,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Claim'
-              example:
-                claim:
-                  accountCreated: '2022-02-02T02:59:59.999999+00:00'
-                  accountNumber: '5692908409716736'
-                  accountType: checking
-                  agent: claimer
-                  bankCode: '35547753'
-                  branchCode: '0000'
-                  claimedBankCode: '31804966'
-                  claimerBankCode: '35547753'
-                  created: '2022-05-17T19:31:21.972149+00:00'
-                  id: '5961418104897536'
-                  keyId: postmanteste@starkbank.com
-                  keyType: email
-                  name: testKey
-                  status: delivered
-                  taxId: 012.345.678-90
-                  type: ownership
-                  updated: '2022-05-17T19:32:00.656440+00:00'
         '400':
           description: Input error
           content:
@@ -2043,9 +1951,6 @@ paths:
                 reason:
                   type: string
                   example: fraud
-            example:
-              status: confirmed
-              reason: fraud
       parameters: []
       responses:
         '200':
@@ -2071,7 +1976,7 @@ paths:
       x-stoplight:
         id: mjq4xnlrmtlg8
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-claim/log:
     get:
@@ -2247,7 +2152,7 @@ paths:
       x-stoplight:
         id: jxpq9q7hmq1jk
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-claim/log/{logId}':
     get:
       operationId: getPixClaimLog
@@ -2347,7 +2252,7 @@ paths:
       x-stoplight:
         id: uv6ckou4l4epm
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-director:
     post:
@@ -2397,7 +2302,7 @@ paths:
       x-stoplight:
         id: d1ok4648j6fj6
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   /pix-infraction:
     post:
       operationId: createPixInfractions
@@ -2530,7 +2435,7 @@ paths:
       x-stoplight:
         id: dxml2urj9h67t
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-infraction/{id}':
     get:
       operationId: getPixInfraction
@@ -2554,24 +2459,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Infraction'
-              example:
-                infraction:
-                  agent: reporter
-                  analysis: ''
-                  bacenId: 5c166c61-50ae-4399-ad3e-12660b7548dd
-                  created: '2022-05-17T19:35:05.414532+00:00'
-                  creditedBankCode: '90400888'
-                  debitedBankCode: '35547753'
-                  description: ''
-                  operatorEmail: fraud@company.com
-                  operatorPhone: '+5511989898989'
-                  id: '4588746288660480'
-                  referenceId: E35547753202201201450u34sDGd19l3
-                  reportedBy: debited
-                  result: ''
-                  status: created
-                  type: fraud
-                  updated: '2022-05-17T19:35:08.845617+00:00'
         '400':
           description: Input error
           content:
@@ -2619,9 +2506,6 @@ paths:
                 analysis:
                   type: string
                   example: Client payed for an item and never received it.
-            example:
-              result: reversal
-              analysis: Client payed for an item and never received it.
       parameters: []
       responses:
         '200':
@@ -2674,25 +2558,6 @@ paths:
                   status:
                     type: string
                     example: canceled
-              example:
-                infraction:
-                  agent: reporter
-                  analysis: ''
-                  bacenId: 5c166c61-50ae-4399-ad3e-12660b7548dd
-                  created: '2022-05-17T19:35:05.414532+00:00'
-                  creditedBankCode: '90400888'
-                  debitedBankCode: '35547753'
-                  description: ''
-                  operatorEmail: fraud@company.com
-                  operatorPhone: '+5511989898989'
-                  id: '4588746288660480'
-                  referenceId: E35547753202201201450u34sDGd19l3
-                  reportedBy: debited
-                  result: ''
-                  status: canceled
-                  type: fraud
-                  updated: '2022-05-17T19:35:08.845617+00:00'
-                message: Pix infraction cancellation successfully requested
         '400':
           description: Input error
           content:
@@ -2710,7 +2575,7 @@ paths:
       x-stoplight:
         id: f2yd72xkih3dk
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-infraction/log:
     get:
@@ -2874,7 +2739,7 @@ paths:
       x-stoplight:
         id: 65j42wephxsoz
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-infraction/log/{logId}':
     get:
       operationId: getPixInfractionLog
@@ -2965,7 +2830,7 @@ paths:
       x-stoplight:
         id: qtsrfce9nk6os
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-chargeback:
     post:
@@ -3135,7 +3000,7 @@ paths:
       x-stoplight:
         id: 6bix3z99aws59
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-chargeback/{id}':
     get:
       operationId: getPixChargeback
@@ -3159,23 +3024,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Chargeback'
-              example:
-                chargeback:
-                  amount: 100
-                  analysis: ''
-                  bacenId: b9dd3250-0ea4-44c7-bc95-a0fb293c92be
-                  created: '2022-05-17T19:43:12.382174+00:00'
-                  description: Client payed for an item and never received it.
-                  id: '5331161626705920'
-                  reason: fraud
-                  receiverBankCode: '54401286'
-                  referenceId: E35547753202205101724tM25SPNVfSp
-                  rejectionReason: ''
-                  result: ''
-                  reversalReferenceId: ''
-                  senderBankCode: '35547753'
-                  status: delivered
-                  updated: '2022-05-17T19:43:15.628222+00:00'
         '400':
           description: Input error
           content:
@@ -3233,10 +3081,6 @@ paths:
                 analysis:
                   type: string
                   example: Upon investigation fraud was confirmed.
-            example:
-              analysis: Upon investigation fraud was confirmed.
-              result: accepted
-              description: Client payed for an item and never received it.
       parameters: []
       responses:
         '200':
@@ -3289,24 +3133,6 @@ paths:
                   status:
                     type: string
                     example: canceled
-              example:
-                chargeback:
-                  amount: 100
-                  analysis: ''
-                  bacenId: b9dd3250-0ea4-44c7-bc95-a0fb293c92be
-                  created: '2022-05-17T19:43:12.382174+00:00'
-                  description: Client payed for an item and never received it.
-                  id: '5331161626705920'
-                  reason: fraud
-                  receiverBankCode: '54401286'
-                  referenceId: E35547753202205101724tM25SPNVfSp
-                  rejectionReason: ''
-                  result: ''
-                  reversalReferenceId: ''
-                  senderBankCode: '35547753'
-                  status: canceled
-                  updated: '2022-05-17T19:43:15.628222+00:00'
-                message: Pix chargeback cancellation successfully requested
         '400':
           description: Input error
           content:
@@ -3324,7 +3150,7 @@ paths:
       x-stoplight:
         id: t0e8x9wadaskq
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /pix-chargeback/log:
     get:
@@ -3486,7 +3312,7 @@ paths:
       x-stoplight:
         id: ab87egvzrw6iq
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/pix-chargeback/log/{logId}':
     get:
       operationId: getPixChargebackLogs
@@ -3576,7 +3402,7 @@ paths:
       x-stoplight:
         id: 70x0l62xon1o3
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /pix-domain:
     get:
@@ -3593,28 +3419,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Domains'
-              example:
-                domains:
-                  - certificates:
-                      - content: |
-                          -----BEGIN CERTIFICATE-----
-                          MIIG/TCCBeWgAwIBAgIQDf12Gq ... SeLP+POvEIiZYh4rRTwbVHM=
-                          -----END CERTIFICATE-----
-                    name: api-h.banrisul.com.br
-                  - certificates:
-                      - content: |
-                          -----BEGIN CERTIFICATE-----
-                          MIIG/TCCBeWgAwIBAgIQDf12Gq ... SeLP+POvEIiZYh4rRTwbVHM=
-                          -----END CERTIFICATE-----
-                    name: qrcodes-pix-h.gerencianet.com.br
-              examples:
-                Example 1:
-                  value:
-                    domains:
-                      - certificates:
-                          certificates:
-                            - content: '-----BEGIN CERTIFICATE-----\nMIIGzjCCB...\n-----END CERTIFICATE-----\n'
-                        name: invoice-h.development.starkbank.com
         '400':
           description: Input error
           content:
@@ -3630,7 +3434,7 @@ paths:
       x-stoplight:
         id: bc3ola6muzvxy
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   /issuing-balance:
     get:
       operationId: listIssuingBalances
@@ -3677,7 +3481,7 @@ paths:
       x-stoplight:
         id: sh8n036ekck50
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   /issuing-bin:
     get:
       operationId: listIssuingBins
@@ -3737,7 +3541,7 @@ paths:
       x-stoplight:
         id: bg3bzsm8s7ap7
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   /issuing-card:
     post:
       operationId: createIssuingCards
@@ -3971,7 +3775,7 @@ paths:
       x-stoplight:
         id: 007b1tvyghu1b
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-card/{id}':
     get:
       operationId: getIssuingCard
@@ -4003,37 +3807,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Card'
-              example:
-                card:
-                  binId: '53810202'
-                  city: Sao Paulo
-                  created: '2022-05-17T20:00:37.619527+00:00'
-                  displayName: ANTHONY STARK
-                  district: Bela Vista
-                  expiration: '****-**-**T**:**:**.******+00:00'
-                  holderExternalId: my-entity/123
-                  holderId: '4843929958612992'
-                  holderName: Tony Stark
-                  holderTaxId: 012.345.678-90
-                  id: '5701684319748096'
-                  number: '**** **** **** 3714'
-                  rules:
-                    - amount: 900000
-                      currencyCode: BRL
-                      id: '5138734366326784'
-                      interval: week
-                      name: Example Rule
-                  securityCode: '***'
-                  stateCode: SP
-                  status: active
-                  streetLine1: 'Av. Paulista, 200'
-                  streetLine2: Apto. 123
-                  tags:
-                    - travel
-                    - food
-                  type: virtual
-                  updated: '2022-05-17T20:00:38.058520+00:00'
-                  zipCode: 01311-200
         '400':
           description: Input error
           content:
@@ -4086,8 +3859,6 @@ paths:
                 tags:
                   items:
                     type: string
-            example:
-              status: blocked
       parameters: []
       responses:
         '200':
@@ -4148,37 +3919,6 @@ paths:
                   status:
                     type: string
                     example: canceled
-              example:
-                card:
-                  binId: '53810202'
-                  city: Sao Paulo
-                  created: '2022-05-17T20:00:37.619527+00:00'
-                  displayName: Updated Holder
-                  district: Bela Vista
-                  expiration: '****-**-**T**:**:**.******+00:00'
-                  holderExternalId: my-entity/123
-                  holderId: '4843929958612992'
-                  holderName: Tony Stark
-                  holderTaxId: 012.345.678-90
-                  id: '5701684319748096'
-                  number: '**** **** **** 3714'
-                  rules:
-                    - amount: 900000
-                      currencyCode: BRL
-                      id: '6533407823626240'
-                      interval: week
-                      name: Example Rule
-                  securityCode: '***'
-                  stateCode: SP
-                  status: canceled
-                  streetLine1: 'Av. Paulista, 200'
-                  streetLine2: Apto. 123
-                  tags:
-                    - technology
-                  type: virtual
-                  updated: '2022-05-17T20:01:37.045064+00:00'
-                  zipCode: 01311-200
-                message: Card successfully updated
         '400':
           description: Input error
           content:
@@ -4196,7 +3936,7 @@ paths:
       x-stoplight:
         id: an21b3bjp7mnc
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-card/log:
     get:
@@ -4382,7 +4122,7 @@ paths:
       x-stoplight:
         id: 6refzdznje7hg
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-card/log/{logId}':
     get:
       operationId: getIssuingCardLog
@@ -4484,7 +4224,7 @@ paths:
       x-stoplight:
         id: vwyrp7k2yegf0
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /issuing-holder:
     post:
@@ -4680,7 +4420,7 @@ paths:
       x-stoplight:
         id: 2cr7ayfmguc0p
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-holder/{id}':
     get:
       operationId: getIssuingHolder
@@ -4712,24 +4452,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Holder'
-              example:
-                holder:
-                  created: '2022-05-17T20:03:05.939249+00:00'
-                  externalId: '123456789'
-                  id: '5055990386917376'
-                  name: Jamie Lannister
-                  rules:
-                    - amount: 900000
-                      currencyCode: BRL
-                      id: '6181890293760000'
-                      interval: week
-                      name: Example Rule
-                  status: active
-                  tags:
-                    - iron
-                    - bank
-                  taxId: 012.345.678-90
-                  updated: '2022-05-17T20:03:06.082272+00:00'
         '400':
           description: Input error
           content:
@@ -4782,8 +4504,6 @@ paths:
                 tags:
                   items:
                     type: string
-            example:
-              status: blocked
       parameters: []
       responses:
         '200':
@@ -4836,24 +4556,6 @@ paths:
                   status:
                     type: string
                     example: canceled
-              example:
-                holder:
-                  created: '2022-05-17T20:03:05.939249+00:00'
-                  externalId: '123456789'
-                  id: '5055990386917376'
-                  name: Updated Holder
-                  rules:
-                    - amount: 900000
-                      currencyCode: BRL
-                      id: '4826637614972928'
-                      interval: week
-                      name: Example Rule
-                  status: canceled
-                  tags:
-                    - food
-                  taxId: 012.345.678-90
-                  updated: '2022-05-17T20:05:12.888972+00:00'
-                message: This card holder is already canceled
         '400':
           description: Input error
           content:
@@ -4871,7 +4573,7 @@ paths:
       x-stoplight:
         id: 6j1z9ya3plucg
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-holder/log:
     get:
@@ -5031,7 +4733,7 @@ paths:
       x-stoplight:
         id: grqp25n9lyf9g
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-holder/log/{logId}':
     get:
       operationId: getIssuingHolderLog
@@ -5120,7 +4822,7 @@ paths:
       x-stoplight:
         id: so9fatkxkj9ab
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /issuing-invoice:
     post:
@@ -5286,7 +4988,7 @@ paths:
       x-stoplight:
         id: rx1p4a7lgzoyz
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-invoice/{id}':
     get:
       operationId: getIssuingInvoice
@@ -5310,20 +5012,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IssuingInvoice'
-              example:
-                invoice:
-                  amount: 10000
-                  brcode: 00020101021226930014br.gov.bcb.pix2571invoice-h.development.starkbank.com/v2/abb8c90c6b3e4b00a3ff223e626985a15204000053039865802BR5925Stark Bank S.A. - Institu6009Sao Paulo62070503***630422DB
-                  created: '2022-05-17T18:18:20.932790+00:00'
-                  due: '2022-05-24T18:18:20.959304+00:00'
-                  id: '5453074432786432'
-                  issuingTransactionId: '6017752305238016'
-                  link: 'https://starkbank-card-issuer.development.starkbank.com/invoicelink/abb8c90c6b3e4b00a3ff223e626985a1'
-                  name: Stark Bank S.A. - Instituicao de Pagamento
-                  status: paid
-                  tags: []
-                  taxId: 20.018.183/0001-80
-                  updated: '2022-05-17T18:21:02.398275+00:00'
         '400':
           description: Input error
           content:
@@ -5341,7 +5029,7 @@ paths:
       x-stoplight:
         id: zrbmcfz7774m4
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-invoice/log:
     get:
@@ -5489,7 +5177,7 @@ paths:
       x-stoplight:
         id: yecymi450ps52
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-invoice/log/{logId}':
     get:
       operationId: getIssuingInvoiceLog
@@ -5571,7 +5259,7 @@ paths:
       x-stoplight:
         id: 9rqiemw4yto1y
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /issuing-purchase:
     get:
@@ -5754,7 +5442,7 @@ paths:
       x-stoplight:
         id: j27xa6maf6i58
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-purchase/{id}':
     get:
       operationId: getIssuingPurchase
@@ -5828,7 +5516,7 @@ paths:
       x-stoplight:
         id: 63bpyl7hfh6z0
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-purchase/log:
     get:
@@ -6016,7 +5704,7 @@ paths:
       x-stoplight:
         id: uxakts09poyh3
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-purchase/log/{logId}':
     get:
       operationId: getIssuingPurchaseLog
@@ -6123,7 +5811,7 @@ paths:
       x-stoplight:
         id: df14l2z6yrrpu
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /issuing-transaction:
     get:
@@ -6242,7 +5930,7 @@ paths:
       x-stoplight:
         id: ee0k9rhmlk4cg
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-transaction/{id}':
     get:
       operationId: getIssuingTransaction
@@ -6292,7 +5980,7 @@ paths:
       x-stoplight:
         id: 69f88umyr44jb
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /issuing-withdrawal:
     post:
@@ -6452,7 +6140,7 @@ paths:
       x-stoplight:
         id: nstlamhuk9sww
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/issuing-withdrawal/{id}':
     get:
       operationId: getIssuingWithdrawal
@@ -6476,19 +6164,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Withdrawal'
-              example:
-                withdrawal:
-                  amount: 10000
-                  created: '2022-05-17T20:10:18.179144+00:00'
-                  description: Sending back
-                  externalId: my_external_id_1
-                  id: '6037115762638848'
-                  issuingTransactionId: '5474165809217536'
-                  tags:
-                    - iron
-                    - bank
-                  transactionId: '5658206160289792'
-                  updated: '2022-05-17T20:10:18.580625+00:00'
         '400':
           description: Input error
           content:
@@ -6506,7 +6181,7 @@ paths:
       x-stoplight:
         id: v6omwjyf47qpz
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /credit-note:
     post:
@@ -6643,57 +6318,6 @@ paths:
                     type: string
                     nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
-              example:
-                cursor: null
-                notes:
-                  - amount: 193461
-                    created: '2022-05-17T20:14:23.054318+00:00'
-                    documentId: '6647908271128576'
-                    expiration: '2022-08-05T07:00:00+00:00'
-                    externalId: my_unique_id
-                    id: '6425285620662272'
-                    interest: 20.55
-                    invoices:
-                      - amount: 234413
-                        descriptions: []
-                        discounts: []
-                        due: '2023-06-17T02:59:59.999999+00:00'
-                        expiration: 5097600
-                        fine: 3
-                        id: ''
-                        interest: 1
-                        name: Jamie Lannister
-                        tags: []
-                        taxId: 012.345.678-90
-                    name: Jamie Lannister
-                    nominalAmount: 200000
-                    payment:
-                      accountNumber: '5005482'
-                      accountType: checking
-                      amount: 193461
-                      bankCode: '60701190'
-                      branchCode: '7248'
-                      id: ''
-                      name: Jamie Lannister
-                      scheduled: '2022-05-17T20:14:22.858881+00:00'
-                      status: ''
-                      tags: []
-                      taxId: 594.739.480-42
-                    paymentType: transfer
-                    rebateAmount: 0
-                    scheduled: '2022-06-07T07:00:00+00:00'
-                    signers:
-                      - contact: jamie.lannister@gmail.com
-                        method: link
-                        name: Jamie Lannister
-                    status: created
-                    tags: []
-                    taxAmount: 6539
-                    taxId: 012.345.678-90
-                    templateId: '5707012469948416'
-                    transactionIds: []
-                    updated: '2022-05-17T20:14:24.326562+00:00'
-                    workspaceId: '6275127679385600'
         '400':
           description: Input error
           content:
@@ -6711,7 +6335,7 @@ paths:
       x-stoplight:
         id: eklmw91wqpuur
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/credit-note/{id}':
     get:
       operationId: getCreditNote
@@ -6735,56 +6359,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Note'
-              example:
-                note:
-                  amount: 193461
-                  created: '2022-05-17T20:14:23.054318+00:00'
-                  documentId: '6647908271128576'
-                  expiration: '2022-08-05T07:00:00+00:00'
-                  externalId: my_unique_id
-                  id: '6425285620662272'
-                  interest: 20.55
-                  invoices:
-                    - amount: 234413
-                      descriptions: []
-                      discounts: []
-                      due: '2023-06-17T02:59:59.999999+00:00'
-                      expiration: 5097600
-                      fine: 3
-                      id: ''
-                      interest: 1
-                      name: Jamie Lannister
-                      tags: []
-                      taxId: 012.345.678-90
-                  name: Jamie Lannister
-                  nominalAmount: 200000
-                  payment:
-                    accountNumber: '5005482'
-                    accountType: checking
-                    amount: 193461
-                    bankCode: '60701190'
-                    branchCode: '7248'
-                    id: ''
-                    name: Jamie Lannister
-                    scheduled: '2022-05-17T20:14:22.858881+00:00'
-                    status: ''
-                    tags: []
-                    taxId: 594.739.480-42
-                  paymentType: transfer
-                  rebateAmount: 0
-                  scheduled: '2022-06-07T07:00:00+00:00'
-                  signers:
-                    - contact: jamie.lannister@gmail.com
-                      method: link
-                      name: Jamie Lannister
-                  status: created
-                  tags: []
-                  taxAmount: 6539
-                  taxId: 012.345.678-90
-                  templateId: '5707012469948416'
-                  transactionIds: []
-                  updated: '2022-05-17T20:14:24.326562+00:00'
-                  workspaceId: '6275127679385600'
         '400':
           description: Input error
           content:
@@ -6802,7 +6376,7 @@ paths:
       x-stoplight:
         id: dc36wvzbygyw6
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /credit-note/log:
     get:
@@ -7022,7 +6596,7 @@ paths:
       x-stoplight:
         id: nv5hftqbqj97l
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/credit-note/log/{logId}':
     get:
       operationId: getCreditNoteLog
@@ -7145,7 +6719,7 @@ paths:
       x-stoplight:
         id: jnkzo0pfqskki
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/LogId'
   /event:
     get:
@@ -7214,125 +6788,6 @@ paths:
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
               example:
                 cursor: Ck0KFAoHY3JlYXRlZBIJCOzOjcus5_cCEjFqFGl-YXBpLW1zLXdlYmhvb2stZGV2chkLEgxOb3RpZmljYXRpb24YgICAhP6w2woMGAAgAQ==
-                events:
-                  - created: '2022-05-17T20:14:24.267083+00:00'
-                    id: '6414584130830336'
-                    isDelivered: true
-                    log:
-                      errors: []
-                      id: '6483512089640960'
-                      note:
-                        amount: 193461
-                        created: '2022-05-17T20:14:23.054318+00:00'
-                        documentId: '6647908271128576'
-                        expiration: '2022-08-05T07:00:00+00:00'
-                        externalId: my_unique_id
-                        id: '6425285620662272'
-                        interest: 20.55
-                        invoices:
-                          - amount: 234413
-                            descriptions: []
-                            discounts: []
-                            due: '2023-06-17T02:59:59.999999+00:00'
-                            expiration: 5097600
-                            fine: 3
-                            id: ''
-                            interest: 1
-                            name: Jamie Lannister
-                            tags: []
-                            taxId: 012.345.678-90
-                        name: Jamie Lannister
-                        nominalAmount: 200000
-                        payment:
-                          accountNumber: '5005482'
-                          accountType: checking
-                          amount: 193461
-                          bankCode: '60701190'
-                          branchCode: '7248'
-                          id: ''
-                          name: Jamie Lannister
-                          scheduled: '2022-05-17T20:14:22.858881+00:00'
-                          status: ''
-                          tags: []
-                          taxId: 594.739.480-42
-                        paymentType: transfer
-                        rebateAmount: 0
-                        scheduled: '2022-06-07T07:00:00+00:00'
-                        signers:
-                          - contact: jamie.lannister@gmail.com
-                            method: link
-                            name: Jamie Lannister
-                        status: created
-                        tags: []
-                        taxAmount: 6539
-                        taxId: 012.345.678-90
-                        templateId: '5707012469948416'
-                        transactionIds: []
-                        updated: '2022-05-17T20:14:23.565643+00:00'
-                        workspaceId: '6275127679385600'
-                      type: registered
-                      updated: '2022-05-17T20:14:23.565648+00:00'
-                    subscription: credit-note
-                    workspaceId: '6275127679385600'
-                  - created: '2022-05-17T20:14:23.385452+00:00'
-                    id: '6031404865421312'
-                    isDelivered: true
-                    log:
-                      errors: []
-                      id: '5017910737108992'
-                      note:
-                        amount: 193461
-                        created: '2022-05-17T20:14:23.054318+00:00'
-                        documentId: ''
-                        expiration: '2022-08-05T07:00:00+00:00'
-                        externalId: my_unique_id
-                        id: '6425285620662272'
-                        interest: 20.55
-                        invoices:
-                          - amount: 234413
-                            descriptions: []
-                            discounts: []
-                            due: '2023-06-17T02:59:59.999999+00:00'
-                            expiration: 5097600
-                            fine: 3
-                            id: ''
-                            interest: 1
-                            name: Jamie Lannister
-                            tags: []
-                            taxId: 012.345.678-90
-                        name: Jamie Lannister
-                        nominalAmount: 200000
-                        payment:
-                          accountNumber: '5005482'
-                          accountType: checking
-                          amount: 193461
-                          bankCode: '60701190'
-                          branchCode: '7248'
-                          id: ''
-                          name: Jamie Lannister
-                          scheduled: '2022-05-17T20:14:22.858881+00:00'
-                          status: ''
-                          tags: []
-                          taxId: 594.739.480-42
-                        paymentType: transfer
-                        rebateAmount: 0
-                        scheduled: '2022-06-07T07:00:00+00:00'
-                        signers:
-                          - contact: jamie.lannister@gmail.com
-                            method: link
-                            name: Jamie Lannister
-                        status: created
-                        tags: []
-                        taxAmount: 6539
-                        taxId: 012.345.678-90
-                        templateId: '5707012469948416'
-                        transactionIds: []
-                        updated: '2022-05-17T20:14:23.073297+00:00'
-                        workspaceId: '6275127679385600'
-                      type: created
-                      updated: '2022-05-17T20:14:23.073303+00:00'
-                    subscription: credit-note
-                    workspaceId: '6275127679385600'
         '400':
           description: Input error
           content:
@@ -7350,7 +6805,7 @@ paths:
       x-stoplight:
         id: lx48h472b58o2
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/event/{id}':
     get:
       operationId: getEvent
@@ -7574,8 +7029,6 @@ paths:
                 isDelivered:
                   type: boolean
                   example: true
-            example:
-              isDelivered: true
       parameters: []
       responses:
         '200':
@@ -7601,7 +7054,7 @@ paths:
       x-stoplight:
         id: vhrfsa3dn0ipq
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
   /event/attempt:
     get:
@@ -7689,7 +7142,7 @@ paths:
       x-stoplight:
         id: zpdwkuxa57wsd
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   /webhook:
     post:
       operationId: createWebhook
@@ -7770,35 +7223,6 @@ paths:
                     type: string
                     nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
-              example:
-                cursor: CjISLGoUaX5hcGktbXMtd2ViaG9vay1kZXZyFAsSB1dlYmhvb2sYgICAuMWl2AkMGAAgAA==
-                webhooks:
-                  - id: '5118348345999360'
-                    subscriptions:
-                      - contract
-                      - credit-note
-                      - issuing-card
-                      - issuing-invoice
-                      - issuing-purchase
-                      - pix-request.in
-                      - pix-request.out
-                      - pix-reversal.in
-                      - pix-reversal.out
-                      - signer
-                    url: 'https://webhook.site/83a371cb-3ba0-487f-8c37-ffe049f271be'
-                  - id: '5454867623575552'
-                    subscriptions:
-                      - contract
-                      - credit-note
-                      - issuing-card
-                      - issuing-invoice
-                      - issuing-purchase
-                      - pix-request.in
-                      - pix-request.out
-                      - pix-reversal.in
-                      - pix-reversal.out
-                      - signer
-                    url: 'https://webhook.site/6cd3c98d-60ca-4f4a-97c6-a7d0365b15a7'
         '400':
           description: Input error
           content:
@@ -7816,7 +7240,7 @@ paths:
       x-stoplight:
         id: tsw0bz4s7a3qq
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
   '/webhook/{id}':
     get:
       operationId: getWebhook
@@ -7840,21 +7264,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Webhook'
-              example:
-                webhook:
-                  id: '5454867623575552'
-                  subscriptions:
-                    - contract
-                    - credit-note
-                    - issuing-card
-                    - issuing-invoice
-                    - issuing-purchase
-                    - pix-request.in
-                    - pix-request.out
-                    - pix-reversal.in
-                    - pix-reversal.out
-                    - signer
-                  url: 'https://webhook.site/6cd3c98d-60ca-4f4a-97c6-a7d0365b15a7'
         '400':
           description: Input error
           content:
@@ -7896,15 +7305,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Webhook'
-              example:
-                message: Webhook successfully deleted
-                webhook:
-                  id: '5930589634953216'
-                  subscriptions:
-                    - contract
-                    - credit-note
-                    - signer
-                  url: 'https://webhook.site/287d2ec8-bc67-4a1e-83b9-d3151ebfcfb7'
         '400':
           description: Input error
           content:
@@ -7922,7 +7322,7 @@ paths:
       x-stoplight:
         id: gvcrscu6qoyv7
     parameters:
-      - $ref: '#/components/parameters/content-type'
+      - $ref: '#/components/parameters/ContentType'
       - $ref: '#/components/parameters/Id'
 components:
   schemas:
@@ -9627,14 +9027,13 @@ components:
             id: dksgqupdear0a
           example: '3101'
   parameters:
-    content-type:
+    ContentType:
       name: Content-Type
       in: header
       required: true
       schema:
         type: string
         example: application/json
-        default: application/json
       description: Specifies the media type of the request body.
     Id:
       name: id
