@@ -1051,8 +1051,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: z2mmh4odq88c7
     get:
@@ -1064,26 +1062,18 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Cursor'
         - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/Status'
-        - $ref: '#/components/parameters/Tags'
+        # - $ref: '#/components/parameters/After'
+        # - $ref: '#/components/parameters/Before'
+        # - $ref: '#/components/parameters/Status'
         - $ref: '#/components/parameters/Ids'
-        - $ref: '#/components/parameters/Fields'
+      # - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/Statements'
-                  - type: object
-                properties:
-                  cursor:
-                    type: string
-                    nullable: true
-                    example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
+                $ref: '#/components/schemas/Statements'
               example:
                 cursor: CjMSLWoQaX5hcGktbXMtc3BpLWRldnIZCxIMUGl4U3RhdGVtZW50GICAgKTO7pIIDBgAIAA=
                 statements:
@@ -1113,8 +1103,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: 8m8wn8iew2h6v
     parameters:
@@ -1127,14 +1115,7 @@ paths:
       summary: Get a Pix statement by ID
       description: Retrieve a specific Pix Statement that was previously created by it's id.
       parameters:
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
@@ -1163,8 +1144,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: wdmf3c607phq4
     parameters:
@@ -1198,8 +1177,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: tpyeixk1phhr3
     parameters:
@@ -8228,12 +8205,15 @@ components:
         after:
           type: string
           format: date
+          description: 'Transactions that happened at this date are stored in the Pix Statement, must be the same as the before parameter.'
         before:
           type: string
           format: date
+          description: 'Transactions that happened at this date are stored in the Pix Statement, must be the same as the after parameter.'
         type:
           type: string
           example: interchangeTotal
+          description: Type of statement to be created.
         id:
           type: string
           example: '5656565656565656'
@@ -8246,6 +8226,10 @@ components:
           type: integer
           example: 11
           readOnly: true
+        chunkCount:
+          type: integer
+          x-stoplight:
+            id: 0bbiqeii0aswt
         created:
           type: string
           format: datetime
@@ -8256,6 +8240,7 @@ components:
           format: datetime
           example: '2022-02-01T14:49:21.831984+00:00'
           readOnly: true
+      title: ''
     Statements:
       type: object
       properties:
