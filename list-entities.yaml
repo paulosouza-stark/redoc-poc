@@ -1,0 +1,22 @@
+## LIST ENTITIES
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/Status'
+        - $ref: '#/components/parameters/Tags'
+        - $ref: '#/components/parameters/Ids'
+
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/EndToEndIds'
+        - $ref: '#/components/parameters/ExternalIds'
+
+
+## LIST LOGS
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/LogTypes'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/Ids'
