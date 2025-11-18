@@ -2405,59 +2405,13 @@ paths:
       summary: List Pix infraction logs
       description: Here you can list and filter all Pix Infraction Logs. We return it paged.
       parameters:
-        - name: cursor
-          in: query
-          description: String used to get the next batch of results.
-          required: false
-          schema:
-            type: string
-            format: byte
-        - name: limit
-          in: query
-          description: Number of results per cursor. Max = 100.
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: after
-          in: query
-          description: Filter entities created after this date.
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: before
-          in: query
-          description: Filter entities created before this date.
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: types
-          in: query
-          description: Filter logs by log types.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: ids
-          in: query
-          description: List of strings to get specific entities by their ids.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/LogTypes'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/Ids'
         - name: infractionIds
           in: query
           description: List of strings to get specific logs by their Pix Infraction ids.
@@ -2555,8 +2509,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: 65j42wephxsoz
     parameters: []
@@ -2575,14 +2527,7 @@ paths:
           schema:
             type: string
             format: '^\d{16}$'
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
@@ -2645,8 +2590,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: qtsrfce9nk6os
     parameters:
