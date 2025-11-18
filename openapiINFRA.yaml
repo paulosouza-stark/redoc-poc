@@ -2169,8 +2169,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: d1ok4648j6fj6
     parameters: []
@@ -2216,8 +2214,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: fgmhchdiz061m
     get:
@@ -2255,41 +2251,6 @@ paths:
                     type: string
                     nullable: true
                     example: ' CkcKFAoHY3JlYXRlZBIJCMyR69q55_cCEitqEGl-YXBpLW1zLXNwaS1kZXZyFwsSClBpeFJlcXVlc3QYgICA5NDXkAoMGAAgAQ== '
-              example:
-                cursor: Ck4KFAoHY3JlYXRlZBIJCJi1_ePi5vcCEjJqEWl-YXBpLW1zLWRpY3QtZGV2ch0LEhBJbmZyYWN0aW9uUmVwb3J0GICAgPjs998JDBgAIAE=
-                infractions:
-                  - agent: reporter
-                    analysis: ''
-                    bacenId: 5c166c61-50ae-4399-ad3e-12660b7548dd
-                    created: '2022-05-17T19:35:05.414532+00:00'
-                    creditedBankCode: '90400888'
-                    debitedBankCode: '35547753'
-                    description: ''
-                    operatorEmail: fraud@company.com
-                    operatorPhone: '+5511989898989'
-                    id: '4588746288660480'
-                    referenceId: E35547753202201201450u34sDGd19l3
-                    reportedBy: debited
-                    result: ''
-                    status: created
-                    type: fraud
-                    updated: '2022-05-17T19:35:08.845617+00:00'
-                  - agent: reporter
-                    analysis: ''
-                    bacenId: d8e25aac-982f-4713-ab99-67c56c118c04
-                    created: '2022-05-17T14:44:11.325080+00:00'
-                    creditedBankCode: '81192106'
-                    debitedBankCode: '35547753'
-                    description: ''
-                    operatorEmail: fraud@company.com
-                    operatorPhone: '+5511989898989'
-                    id: '5488482050899968'
-                    referenceId: E35547753202205101724kmMpSb0eS9b
-                    reportedBy: debited
-                    result: ''
-                    status: canceled
-                    type: fraud
-                    updated: '2022-05-17T14:44:43.497703+00:00'
         '400':
           description: Input error
           content:
@@ -2302,8 +2263,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: dxml2urj9h67t
     parameters: []
@@ -2315,14 +2274,7 @@ paths:
       summary: Get a Pix infraction by ID
       description: Get a specific Pix Infraction by it's id.
       parameters:
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+        - $ref: '#/components/parameters/Fields'
       responses:
         '200':
           description: OK
@@ -2342,8 +2294,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: o2bufindhkz3v
     patch:
@@ -2365,18 +2315,29 @@ paths:
             schema:
               type: object
               required:
-                - id
                 - result
               properties:
-                id:
-                  type: string
-                  example: '5719405850615809'
                 result:
                   type: string
                   example: agreed
+                  description: Result after the analysis of the received Pix Infraction.
+                  enum:
+                    - agreed
+                    - disagreed
+                fraudType:
+                  type: string
+                  x-stoplight:
+                    id: pndfm200p31qw
+                  description: The type of fraud that led to the creation of the Infraction. Required if the result field value is "agreed".
+                  enum:
+                    - identity
+                    - mule
+                    - scam
+                    - other
                 analysis:
                   type: string
                   example: Client payed for an item and never received it.
+                  description: Analysis that led to the result.
       parameters:
         - $ref: '#/components/parameters/ContentType'
       responses:
@@ -2398,8 +2359,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: 2qw31m5i8vfsf
     delete:
@@ -2408,15 +2367,7 @@ paths:
         - Pix Infraction
       summary: Cancel a Pix infraction by ID
       description: Cancel a specific Pix Infraction using its id. Only the reporter agent can cancel a Pix Infraction.
-      parameters:
-        - name: fields
-          in: query
-          description: List of strings to filter response JSON keys.
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
+      parameters: []
       responses:
         '200':
           description: OK
@@ -2442,8 +2393,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalErrors'
-        default:
-          description: Unexpected error
       x-stoplight:
         id: f2yd72xkih3dk
     parameters:
@@ -7788,15 +7737,52 @@ components:
       required:
         - referenceId
         - type
+        - method
+        - operatorEmail
+        - operatorPhone
       properties:
         referenceId:
           type: string
           example: E20018183202201201450u34sDGd19lz
+          description: End to end id or return id of the transaction being reported.
         type:
           type: string
-          example: fraud
+          example: reversal
+          description: Type of the Pix Infraction.
+          enum:
+            - reversal
+            - reversalChargeback
+        method:
+          type: string
+          example: scam
+          enum:
+            - scam
+            - unauthorized
+            - coercion
+            - invasion
+            - other
+          x-stoplight:
+            id: 530dp0frc9guk
+          description: Method used to peform the fraudulent action.
+        operatorEmail:
+          type: string
+          x-stoplight:
+            id: ya91pmlni79ru
+          description: |
+            Contact email of the operator responsible for the infraction notification.
+        operatorPhone:
+          type: string
+          x-stoplight:
+            id: 1b4uy4o8kj90z
+          description: Contact phone number of the operator responsible for the infraction notification.
         description:
           type: string
+          description: Description including any details that can help with the infraction investigation. Required if the method is "other".
+        tags:
+          type: string
+          x-stoplight:
+            id: vpvn4x2hiqgng
+          description: List of strings to tag the entity for future queries. All tags will be converted to lowercase.
         id:
           type: string
           example: '5656565656565656'
@@ -7809,15 +7795,13 @@ components:
           type: string
           example: '20018183'
           readOnly: true
-        agent:
-          type: string
-          example: reported
-          readOnly: true
         analysis:
           type: string
+          example: Upon investigation fraud was confirmed.
           readOnly: true
         bacenId:
           type: string
+          example: 7e9cb22d-35ae-4d42-9f1a-950e50df1e99
           readOnly: true
         reportedBy:
           type: string
@@ -7829,7 +7813,28 @@ components:
           readOnly: true
         status:
           type: string
-          example: failed
+          example: close
+          readOnly: true
+        fraudId:
+          type: string
+          example: '5741774970552320'
+          x-stoplight:
+            id: j79d4e75vnw7o
+          readOnly: true
+        fraudType:
+          type: string
+          example: scam
+          x-stoplight:
+            id: 17v00gpjr4t27
+          readOnly: true
+        flow:
+          type: string
+          example: out
+          enum:
+            - in
+            - out
+          x-stoplight:
+            id: isysybsq0ikrx
           readOnly: true
         created:
           type: string
